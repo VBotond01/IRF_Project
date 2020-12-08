@@ -1,3 +1,1 @@
-Arra gondoltam hogy a CSV fájlban benne lenne valamilyen számadatok, ezt a setter ággal adok neki valamilyen tulajdonságot vagy tulajdonság alapján szűröm?
-és ezeket az adatokat utána kigyűjtöm egy excelbe?
-valamilyen időközönként?
+Amazon top 50 Bestselling books 2009-2019-ig csv fájlt beolvassuk, ezeket szűrjük bizonyos kitételek alapján, majd amit szűrtünk letudjuk menteni egy excelbe, még a timerrel nem tudom mit kezdek, hogyan építem be.
