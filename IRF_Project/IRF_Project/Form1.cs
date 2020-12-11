@@ -13,19 +13,25 @@ namespace IRF_Project
 {
     public partial class Form1 : Form
     {
+        private List<Book> _Books = new List<Book>();
         public Form1()
         {
             InitializeComponent();
+            LoadBooks();
+
+
         }
 
 
 
 
-        private List<Book> _Books = new List<Book>();
+        
         private void LoadBooks()
         {
-            _Books.Clear();
-            using (StreamReader sr = new StreamReader("best seller with categories.csv", Encoding.Default))
+       
+
+        _Books.Clear();
+            using (StreamReader sr = new StreamReader("bestsellers with categories.csv", Encoding.Default))
             {
                 sr.ReadLine(); // Remove headers
                 while (!sr.EndOfStream)
@@ -40,10 +46,16 @@ namespace IRF_Project
                     s.Year = line[4];
                     s.Genre = line[5];
 
+                    _Books.Add(s);
+                    
 
-                   
                 }
-            }
+               }
+
+            var bindingSource = new BindingSource
+            {
+                DataSource = _Books};
+            dataGridView1.DataSource = bindingSource;
         }
 
 
@@ -52,5 +64,7 @@ namespace IRF_Project
         {
 
         }
+        
     }
+    
 }
