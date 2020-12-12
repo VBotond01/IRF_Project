@@ -15,9 +15,7 @@ namespace IRF_Project
 {
     public partial class Form1 : Form
     {
-        Excel.Application xlApp;
-        Excel.Workbook xlWB;
-        Excel.Worksheet xlSheet;
+       
         private List<Book> _Books = new List<Book>();
         public Form1()
         {
@@ -85,7 +83,7 @@ namespace IRF_Project
             var bindingSource = new BindingSource
             {
                 DataSource = _Books};
-            dataGridView1.DataSource = bindingSource;
+            advancedDataGridView1.DataSource = bindingSource;
         }
 
 
@@ -96,22 +94,22 @@ namespace IRF_Project
         private void button1_Click_1(object sender, EventArgs e)
         {
 
-            if (dataGridView1.Rows.Count > 0)
+            if (advancedDataGridView1.Rows.Count > 0)
             {
 
                 Microsoft.Office.Interop.Excel.Application xcelApp = new Microsoft.Office.Interop.Excel.Application();
                 xcelApp.Application.Workbooks.Add(Type.Missing);
 
-                for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+                for (int i = 1; i < advancedDataGridView1.Columns.Count + 1; i++)
                 {
-                    xcelApp.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+                    xcelApp.Cells[1, i] = advancedDataGridView1.Columns[i - 1].HeaderText;
                 }
 
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                for (int i = 0; i < advancedDataGridView1.Rows.Count; i++)
                 {
-                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    for (int j = 0; j < advancedDataGridView1.Columns.Count; j++)
                     {
-                        xcelApp.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        xcelApp.Cells[i + 2, j + 1] = advancedDataGridView1.Rows[i].Cells[j].Value.ToString();
                     }
                 }
                 xcelApp.Columns.AutoFit();
@@ -125,8 +123,35 @@ namespace IRF_Project
 
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = advancedDataGridView1.DataSource;
+            bs.Filter = "Name like '%" + textBox1.Text + "%'";
+            advancedDataGridView1.DataSource = bs;
 
+            
 
+        }
+
+        private void advancedDataGridView_SortStringChange(object sender, EventArgs e)
+        {
+            this.bookBindingSource.Sort = this.advancedDataGridView1.SortString;
+            
+        }
+
+        private void advancedDataGridView_FilterStringChanged(object sender, EventArgs e)
+        {
+            this.bookBindingSource.Filter = this.advancedDataGridView1.FilterString;
+
+        }
+        int seconds = 0;
+        private void tmrSeconds_Tick(object sender, EventArgs e)
+        {
+            seconds++;
+            lblSeconds.Text = "Eltöltött idő (mp):" + seconds;
+
+        }
     }
     
 }
