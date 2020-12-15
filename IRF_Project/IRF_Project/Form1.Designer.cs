@@ -29,26 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblSeconds = new System.Windows.Forms.Label();
             this.tmrSeconds = new System.Windows.Forms.Timer(this.components);
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.buttonback1 = new IRF_Project.Buttonback();
             this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.labelBack1 = new IRF_Project.LabelBack();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(25, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Mentés";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // dataGridView1
             // 
@@ -59,15 +49,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(833, 515);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(125, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Szerző:";
             // 
             // lblSeconds
             // 
@@ -96,19 +77,40 @@
             this.txtSearch.TabIndex = 7;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
+            // buttonback1
+            // 
+            this.buttonback1.BackColor = System.Drawing.Color.AliceBlue;
+            this.buttonback1.Location = new System.Drawing.Point(12, 11);
+            this.buttonback1.Name = "buttonback1";
+            this.buttonback1.Size = new System.Drawing.Size(75, 23);
+            this.buttonback1.TabIndex = 8;
+            this.buttonback1.Text = "Mentés";
+            this.buttonback1.UseVisualStyleBackColor = false;
+            this.buttonback1.Click += new System.EventHandler(this.buttonback1_Click);
+            // 
             // bookBindingSource
             // 
             this.bookBindingSource.DataSource = typeof(IRF_Project.Book);
+            // 
+            // labelBack1
+            // 
+            this.labelBack1.AutoSize = true;
+            this.labelBack1.BackColor = System.Drawing.Color.AliceBlue;
+            this.labelBack1.Location = new System.Drawing.Point(111, 17);
+            this.labelBack1.Name = "labelBack1";
+            this.labelBack1.Size = new System.Drawing.Size(42, 13);
+            this.labelBack1.TabIndex = 9;
+            this.labelBack1.Text = "Szerző:";
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(861, 595);
+            this.Controls.Add(this.labelBack1);
+            this.Controls.Add(this.buttonback1);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSeconds);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
             this.Name = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
@@ -118,14 +120,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource bookBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSeconds;
         private System.Windows.Forms.Timer tmrSeconds;
         private System.Windows.Forms.TextBox txtSearch;
+        private Buttonback buttonback1;
+        private LabelBack labelBack1;
     }
 }
 
