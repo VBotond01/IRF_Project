@@ -37,7 +37,7 @@ namespace IRF_Project
         _Books.Clear();
             using (StreamReader sr = new StreamReader("bestsellers with categories.csv", Encoding.Default))
             {
-             
+                sr.ReadLine();
 
                 while (!sr.EndOfStream)
                 {
@@ -109,8 +109,9 @@ namespace IRF_Project
         
         private void Authorlista()
         {
-              var result = _Books.Where
-                (x => x.Author.Contains(txtSearch.Text)).ToList();
+           
+            var result = _Books.Where
+                (x => x.Author.StartsWith(txtSearch.Text)).ToList();
                dataGridView1.DataSource = result; 
 
 
